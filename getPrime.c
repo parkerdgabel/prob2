@@ -16,7 +16,7 @@ int main() {
     scanf("%d", &num);
     if (num < 0) {
         fprintf(stderr, "Num must be a positive integer");
-        return -1;
+        return 1;
     }
     num++;
     while (1) {
