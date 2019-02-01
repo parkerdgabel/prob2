@@ -13,18 +13,21 @@ int isPrime(int num) {
 
 int main() {
     int num = 0;
-    scanf("%d", &num);
-    if (num < 0) {
-        fprintf(stderr, "Num must be a positive integer");
+    if (scanf("%d", &num) == 0) {
+        fprintf(stderr, "Error reading input");
         return 1;
-    }
-    num++;
-    while (1) {
-        if (isPrime(num)) {
-            printf("%d\n", num);
-            break;
-        }
+    } else if (num < 0) {
+        fprintf(stderr, "Error: %d is not a positive number", num);
+        return 1;
+    } else {
         num++;
+        while (1) {
+            if (isPrime(num)) {
+                printf("%d\n", num);
+                break;
+            }
+            num++;
+        }
     }
     return 0;
 }
